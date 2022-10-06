@@ -28,7 +28,7 @@ class ClientesModel extends Connection implements ClientesModelI
 
     function getDetallesCliente($id)
     {
-        $sql = "SELECT * FROM cliente Where id = :id;";
+        $sql = "SELECT * FROM cliente Where CLIENTE_COD = :id;";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $id);
         if ($stmt->execute() && $stmt->rowCount() > 0) {

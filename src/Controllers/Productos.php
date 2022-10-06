@@ -1,6 +1,7 @@
 <?php
 
 namespace src\Controllers;
+
 use src\Models\ProductosModel;
 
 class Productos
@@ -9,13 +10,16 @@ class Productos
 
     function __construct()
     {
-        $this->model = new ListaProductosModel();
-        print_r('Soy el controlador de ListaProductos');
+        $this->model = new ProductosModel();
+        print_r('Soy el controlador de Productos');
     }
 
-    public function getListaProductos()
+    public function productos()
     {
         $productos = $this->model->getAllProductos();
+        echo "<pre>";
+        print_r($productos);
+        echo "</pre>";
         // echo $this->twig->render('list.html.twig', ['productos' => $productos]);
     }
 }

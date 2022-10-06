@@ -35,27 +35,30 @@ if ($largo === 0) { // Cargamos el controlador Home
     } else require_once dirname(__DIR__) . "/templates/404.html";
 } else if ($largo === 1) { // Cargamos cualquier controlador válido menos detalleCliente
     if (!array_key_exists($requestURI[0], $rutas)) require_once dirname(__DIR__) . "/templates/404.html"; // Comprobamos si el controlador está definido entre las rutas aceptadas
-    else if ($requestURI[0] !== 'detalleCliente') {
-        $controllerName = ucwords($requestURI[0]);
-        $controllerFile = dirname(__DIR__) . "/src/Controllers/" . $controllerName . ".php";
+    if ($requestURI[0] === 'detalleCliente') require_once dirname(__DIR__) . "/templates/404.html"; // detallecliente debe de ir seguido de un segundo parámetro
+    else {
+        $controllerName = ucwords($rutas[$requestURI[0]]);
+        $controllerFile = dirname(__DIR__) . "/src/Controllers/" . $controllerName;
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
-            $controllerInstanceName = 'src\\Controllers\\' . $controllerName;
+            $controllerInstanceName = 'src\\Controllers\\' . pathinfo($controllerFile, PATHINFO_FILENAME);
             $controller = new $controllerInstanceName();
+            $controller->{strtolower(pathinfo($controllerFile, PATHINFO_FILENAME))}();
         } else require_once dirname(__DIR__) . "/templates/404.html";
     }
 } else if ($largo === 2) { // Cargamos el controlador detalleCliente siempre que recibamos también el dato que lo identifique
     if (!array_key_exists($requestURI[0], $rutas)) require_once dirname(__DIR__) . "/templates/404.html"; // Comprobamos si el controlador está definido entre las rutas aceptadas
-    else if ($requestURI[0] === 'detalleCliente' && !isset($requestURI[1])) { // No recibimos el identificador necesario
-        require_once dirname(__DIR__) . "/templates/404.html";
-    } else if ($requestURI[0] === 'detalleCliente' && isset($requestURI[1])) { // Si recibimos el identificador necesario
+    if ($requestURI[0] !== 'detalleCliente') require_once dirname(__DIR__) . "/templates/404.html"; // solo detallecliente puede de ir seguido de un segundo parámetro
+    if ($requestURI[0] === 'detalleCliente' && !isset($requestURI[1]))  require_once dirname(__DIR__) . "/templates/404.html";// No recibimos el identificador necesario
+    if ($requestURI[0] === 'detalleCliente' && isset($requestURI[1])) { // Si recibimos el identificador necesario
         $param = $requestURI[1];
-        $controllerName = ucwords($requestURI[0]);
-        $controllerFile = dirname(__DIR__) . "/src/Controllers/" . $controllerName . ".php";
+        $controllerName = ucwords($rutas[$requestURI[0]]);
+        $controllerFile = dirname(__DIR__) . "/src/Controllers/" . $controllerName;
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
-            $controllerInstanceName = 'src\\Controllers\\' . $controllerName;
+            $controllerInstanceName = 'src\\Controllers\\' . pathinfo($controllerFile, PATHINFO_FILENAME);
             $controller = new $controllerInstanceName();
+            $controller->getDetalleCliente($param);
             // pasamos el param a un método de la clase
         } else require_once dirname(__DIR__) . "/templates/404.html";
     }else{

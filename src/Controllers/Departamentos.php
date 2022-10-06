@@ -13,9 +13,12 @@ class Departamentos {
         print_r('Soy el controlador de Departamentos');
     }
 
-    public function getDepartamentos()
+    public function departamentos()
     {
-        $departamentos = $this->model->getDepartamentos();
+        $departamentos = $this->model->getAllDepartamentos();
+        echo "<pre>";
+        print_r($departamentos);
+        echo "</pre>";
         // echo $this->twig->render('detail.html.twig', ['departamentos' => $departamentos]);
     }
 
