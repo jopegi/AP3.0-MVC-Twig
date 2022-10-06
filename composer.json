@@ -1,0 +1,19 @@
+{
+    "name": "daw/ap3.0-mvc-twigg",
+    "description": "Actividad 3.0 DAW",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "twig/twig": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/",
+            "src\\Controllers\\": "src/Controllers/",
+            "src\\Models\\": "src/Models/",
+            "src\\Core\\": "src/Core/",
+            "src\\Core\\Interfaces\\": "src/Core/Interfaces/",
+            "Config\\": "config/"
+        }
+    }
+}

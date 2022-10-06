@@ -1,0 +1,11 @@
+Options All -Indexes
+
+# Si las siguientes condiciones son verdaderas, entonces redireccionamos la URL:
+# Si el nombre de fichero solicitado no es un directorio,
+RewriteCond %{REQUEST_FILENAME} !-d
+# Y además, si el nombre de fichero solicitado no es un archivo que 
+# ya exista (podría existir a nivel de servidor lo que estés buscando por la URL)
+RewriteCond %{REQUEST_FILENAME} !-f
+# Y el fichero solicitado no es un enlace simbólico
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php [QSA,L]

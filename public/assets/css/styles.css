@@ -1,0 +1,75 @@
+/*************** HOME STYLES ******************/
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.container1 {
+    text-align: center;
+}
+
+.container1 h1 {
+    margin-top: 0;
+    background-color:darkslategrey;
+    text-align: center;
+    color:white;
+    padding: 10px;
+}
+
+.container1__datetime {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+}
+
+.container2 {
+    margin-top: 50px;
+    text-align: center;
+    
+}
+
+.container2__link {
+    text-decoration:none;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: chocolate;
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+}
+
+.container2__link span {
+    vertical-align: middle;
+}
+
+.container2__link:hover {
+    cursor: pointer;
+}
+/*********************************************/
+
+.link {
+    text-decoration:none;
+}
+
+.contenedor-detalle__titulo {
+    text-align: center;
+    color:darkslategrey;
+    font-weight: 700;
+
+}
+
+.contenedor-detalle__tabla__encabezado {
+    color:antiquewhite;
+    background-color: chocolate !important;
+}
+
+.contenedor-btn-detalle {
+    text-align: center;
+}

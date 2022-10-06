@@ -1,0 +1,9 @@
+{
+    "":"home.php",
+    "listaProductos":"listaProductos.php",
+    "listaClientes":"listaClientes.php",
+    "detalleCliente":"detalleCliente.php",
+    "departamentos":"departamentos.php",
+    "empleados":"empleados.php",
+    "pedidos":"pedidos.php"
+}

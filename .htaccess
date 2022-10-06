@@ -1,0 +1,21 @@
+Options All -Indexes
+
+# Esto te permite hacer uso del módulo mod_rewrite 
+# para poder reescribir o redireccionar URLs.
+RewriteEngine on
+
+# Esta directiva nos permite definir el fichero de configuración .htaccess
+# fuera del directorio raíz de la aplicación, o sitio (en este caso, fuera de:
+# C:/xampp_7.4.21/htdocs/TrAZA_app/public)
+# RewriteBase /
+
+# Si las siguientes condiciones son verdaderas, entonces redireccionamos la URL:
+# Si el nombre de fichero solicitado no es un directorio,
+RewriteCond %{REQUEST_FILENAME} !-d
+# Y además, si el nombre de fichero solicitado no es un archivo que 
+# ya exista (podría existir a nivel de servidor lo que estés buscando por la URL)
+RewriteCond %{REQUEST_FILENAME} !-f
+# Y el fichero solicitado no es un enlace simbólico
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.*)$ index.php [QSA,L]

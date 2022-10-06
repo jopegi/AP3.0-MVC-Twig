@@ -1,0 +1,14 @@
+{% include 'header.html' %}
+<div class="contenedor-detalle container mt-5">
+    <h1 class="contenedor-detalle__titulo">INICIO</h1>
+</div>
+<div class="container1 bg-dark text-light">
+    <span class="container1__datetime">{{ date |date("H:i:s - m/d/Y") }}</span>
+</div>
+<div class="container2">
+    <a class="container2__link" href="lista">
+        <span class="material-icons-outlined">visibility
+        </span>
+        Lista</a>
+</div>
+{% include 'footer.html' %}

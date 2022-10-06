@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+
+<div class="contenedor-detalle container mt-5">
+    <h1 class="contenedor-detalle__titulo">LISTA TAREAS</h1>
+</div>
+
+<div class="contenedor-btn-detalle">
+    <a href="http://localhost:4000/AP2.0-MVC-Twig/public" class="btn btn-warning">
+        &lt;&lt;&lt;&nbsp;Volver</a>
+</div>
+
+<div
+    class="container mt-5">
+    {# {{ dump(tareas) }} #}
+    <table class="table table-dark">
+        <thead class="text-center text-danger">
+            <tr>
+                {# <th scope="col">ID</th>
+                                                                <th scope="col">TÍTULO</th>
+                                                                <th scope="col">DESCRIPCIÓN</th>
+                                                                <th scope="col">CREACIÓN</th>
+                                                                <th scope="col">VENCIMIENTO</th>
+                                                                <th scope="col">DETALLE</th> #}
+                {% for item in tareas|first|keys %}
+                    <th scope="col">{{ item|capitalize }}</th>
+                {% endfor %}
+                <th scope="col">Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dbRegisters in tareas %}
+                <tr>
+                    {% for item in dbRegisters %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                    <td>
+                        {% set url = 'detail/detail/' %}
+                        <a class="badge bg-primary link" href="{{ "#{url}#{dbRegisters.id}" }}">detalle</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'footer.html' %}

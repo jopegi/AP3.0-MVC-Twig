@@ -1,0 +1,35 @@
+{% include 'header.html' %}
+
+<div class="contenedor-detalle container mt-5">
+    <h1 class="contenedor-detalle__titulo">DETALLE TAREA</h1>
+    <table class="tabla table table-dark">
+        <tr>
+            <th class="contenedor-detalle__tabla__encabezado">ID</th>
+            <td>{{ detalle.id }}</td>
+        </tr>
+        <tr>
+            <th class="contenedor-detalle__tabla__encabezado">TÍTULO</th>
+            <td>{{ detalle.titulo }}</td>
+        </tr>
+        <tr>
+            <th class="contenedor-detalle__tabla__encabezado">DESCRIPCIÓN</th>
+            <td>{{ detalle.descripcion }}</td>
+        </tr>
+        <tr>
+            <th class="contenedor-detalle__tabla__encabezado">CREACIÓN</th>
+            <td>{{ detalle.fecha_creacion }}</td>
+        </tr>
+        <tr>
+            <th class="contenedor-detalle__tabla__encabezado">VENCIMIENTO</th>
+            <td>{{ detalle.fecha_vencimiento }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="contenedor-btn-detalle">
+    <a href="http://localhost:4000/AP2.0-MVC-Twig/public/lista" class="btn btn-warning">
+        &lt;&lt;&lt;&nbsp;Volver</a>
+</div>
+
+{% include 'footer.html' %}
