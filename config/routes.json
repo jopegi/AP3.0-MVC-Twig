@@ -1,8 +1,8 @@
 {
     "":"home.php",
-    "listaProductos":"listaProductos.php",
-    "listaClientes":"listaClientes.php",
-    "detalleCliente":"detalleCliente.php",
+    "listaProductos":"productos.php",
+    "listaClientes":"clientes.php",
+    "detalleCliente":"clientes.php",
     "departamentos":"departamentos.php",
     "empleados":"empleados.php",
     "pedidos":"pedidos.php"
